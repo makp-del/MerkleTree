@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class HashUtil {
     public static String hash(String text) throws NoSuchAlgorithmException {
-        if (text == null || text.isEmpty()) {
+        if (text == null) {
             throw new IllegalArgumentException("Input to hash cannot be null or empty.");
         }
         MessageDigest digest = MessageDigest.getInstance("SHA-256");

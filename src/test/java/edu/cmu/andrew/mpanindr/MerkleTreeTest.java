@@ -1,14 +1,74 @@
 package edu.cmu.andrew.mpanindr;
 
 import edu.utils.HashUtil;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.security.NoSuchAlgorithmException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class MerkleTreeTest {
 
     // Test readFileLines method with a valid file (Mocked content)
+
+    private final InputStream systemIn = System.in; // Store the original System.in
+    private ByteArrayInputStream testIn;
+
+    @BeforeEach
+    void setUpInputStream() {
+        // This runs before each test
+    }
+
+    @AfterEach
+    void restoreSystemIn() {
+        // Restore System.in after each test
+        System.setIn(systemIn);
+    }
+
+    // Helper method to provide input to System.in
+    private void provideInput(String data) {
+        testIn = new ByteArrayInputStream(data.getBytes());
+        System.setIn(testIn);  // Redirect System.in to test input
+    }
+
+    @Test
+    void testProcessAllFilesChoice() {
+        // Simulate user input "1\n" for the "All files" choice
+        provideInput("1\n");
+
+        // Call the main method to trigger the input
+        MerkleTree.main(new String[]{});
+
+        // Add any necessary assertions based on expected behavior
+    }
+
+    @Test
+    void testProcessSpecificFileChoice() {
+        // Simulate user input "2\nsampleFile.txt\n" for the specific file choice
+        provideInput("2\nsampleFile.txt\n");
+
+        // Call the main method to trigger the input
+        MerkleTree.main(new String[]{});
+
+        // Add any necessary assertions based on expected behavior
+    }
+
+    @Test
+    void testInvalidChoiceInput() {
+        // Simulate invalid user input "3\n"
+        provideInput("3\n");
+
+        // Expect an IllegalArgumentException for invalid choice
+        assertThrows(IllegalArgumentException.class, () -> {
+            MerkleTree.main(new String[]{});
+        });
+    }
+
     @Test
     void testReadFileLines() throws IOException {
         // Create a temporary file with mock content

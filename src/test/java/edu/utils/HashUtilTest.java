@@ -19,14 +19,15 @@ class HashUtilTest {
 
     // Test hashing an empty string (should throw an exception)
     @Test
-    void testHashEmptyString() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            HashUtil.hash("");
-        });
+    void testHashEmptyString() throws NoSuchAlgorithmException {
+        // Expected SHA-256 hash of an empty string
+        String expectedHash = "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855";
 
-        String expectedMessage = "Input to hash cannot be null or empty.";
-        String actualMessage = exception.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
+        // Hash the empty string
+        String actualHash = HashUtil.hash("");
+
+        // Verify that the hash of the empty string matches the expected SHA-256 hash
+        assertEquals(expectedHash, actualHash);
     }
 
     // Test hashing a null value (should throw an exception)
