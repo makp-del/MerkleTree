@@ -42,21 +42,37 @@ MerkleTreeProject/
 │   │       │   ├── cmu
 │   │       │   │   └── andrew
 │   │       │   │       └── mpanindr
-│   │       │   │           └── MerkleTree.java   # Main Merkle Tree implementation
-│   │       └── edu
-│   │           └── utils
-│   │               └── HashUtil.java              # Utility for hashing
-│   └── test
-│       └── java
-│           └── edu
-│               └── cmu
-│                   └── andrew
-│                       └── mpanindr
-│                           └── MerkleTreeTest.java # Unit tests for Merkle Tree implementation
-├── README.md
-├── pom.xml                                       # Maven build file with dependencies
-└── logback.xml                                   # Logback configuration for logging
+│   │       │   │           ├── MerkleTree.java                    # Main Merkle Tree implementation
+│   │       │   │           ├── OrderedLinkedListOfIntegers.java    # Ordered Linked List of Integers
+│   │       │   │           ├── SinglyLinkedList.java               # Singly Linked List class
+│   │       │   └── colorado
+│   │       │       └── nodes
+│   │       │           └── ObjectNode.java                        # Node structure for Linked List
+│   │       └── utils
+│   │           └── HashUtil.java                                   # Utility for hashing
+│
+├── test
+│   ├── java
+│   │   └── edu
+│   │       ├── cmu
+│   │       │   └── andrew
+│   │       │       └── mpanindr
+│   │       │           ├── MerkleTreeTest.java                    # Unit tests for Merkle Tree implementation
+│   │       │           ├── SinglyLinkedListTest.java              # Unit tests for SinglyLinkedList class
+│   │       └── colorado
+│   │           └── nodes
+│   │               └── ObjectNodeTest.java                        # Unit tests for ObjectNode class
+│   │       └── utils
+│   │           └── HashUtilTest.java                              # Unit tests for HashUtil class
+│   └── resources
+│       ├── emptyFile.txt                                           # Empty file used in tests
+│       └── sampleFile.txt                                          # Sample file used in tests
+│
+├── README.md                                                        # Project documentation
+├── pom.xml                                                          # Maven build file with dependencies
+└── logback.xml                                                      # Logback configuration for logging
 ```
+
 Dependencies
 
 Add the following dependencies to your pom.xml file to include the required libraries:
