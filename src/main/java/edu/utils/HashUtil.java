@@ -1,3 +1,6 @@
+//Andrew ID: mpanindr
+//Name: Manjunath K P
+
 package edu.utils;
 
 import java.nio.charset.StandardCharsets;
@@ -11,7 +14,7 @@ public class HashUtil {
         }
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
         byte[] hash = digest.digest(text.getBytes(StandardCharsets.UTF_8));
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i <= 31; i++) {
             byte b = hash[i];
             sb.append(String.format("%02X", b));
